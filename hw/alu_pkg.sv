@@ -5,9 +5,9 @@ package alu_pkg;
         sll   = 5'd2,
         srl   = 5'd3,
         sra   = 5'd4,
-        and   = 5'd5,
-        or    = 5'd6,
-        xor   = 5'd7,
+        aand  = 5'd5,
+        oor    = 5'd6,
+        xxor  = 5'd7,
         slt   = 5'd8,
         sltu  = 5'd9,
         addi  = 5'd10,
@@ -20,6 +20,6 @@ package alu_pkg;
         slti  = 5'd17,
         sltiu = 5'd18,
         lui   = 5'd19,
-        auipc = 5'd20,
+        auipc = 5'd20
     } alu_sel_t;
 endpackage
