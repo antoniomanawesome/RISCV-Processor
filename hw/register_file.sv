@@ -33,5 +33,4 @@ end
 assign portA = (regA == 0) ? '0 : (wr_en == 1'b1) ? portA : regs[regA];
 assign portB = (regB == 0) ? '0 : (wr_en == 1'b1) ? portB : regs[regB];
 
-
 endmodule
