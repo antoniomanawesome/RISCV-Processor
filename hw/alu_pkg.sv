@@ -1,0 +1,25 @@
+package alu_pkg;
+    typedef enum logic [4:0] {
+        add   = 0,
+        sub   = 1,
+        sll   = 2,
+        srl   = 3,
+        sra   = 4,
+        and   = 5,
+        or    = 6,
+        xor   = 7,
+        slt   = 8,
+        sltu  = 9,
+        addi  = 10,
+        slli  = 11,
+        srli  = 12,
+        srai  = 13,
+        andi  = 14,
+        ori   = 15,
+        xori  = 16,
+        slti  = 17,
+        sltiu = 18,
+        lui   = 19,
+        auipc = 20,
+    } alu_sel_t;
+endpackage
