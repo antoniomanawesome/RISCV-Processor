@@ -6,13 +6,14 @@ module register
 (
     input logic clk,
     input logic rst,
+    input logic en,
     input logic [WIDTH-1:0] in,
     output logic [WIDTH-1:0] out
 );
 
 always_ff @(posedge clk or posedge rst) begin
-    out <= in;
-    if(rst) out <= '0; 
+    if (en) out <= in;
+    if (rst) out <= '0; 
 end
 
 endmodule
