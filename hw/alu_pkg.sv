@@ -20,6 +20,16 @@ package alu_pkg;
         slti  = 5'd17,
         sltiu = 5'd18,
         lui   = 5'd19,
-        auipc = 5'd20
+        auipc = 5'd20,
+        lb = 5'd21,
+        lbu = 5'd22,
+        lh = 5'd23,
+        lhu = 5'd24,
+        lw = 5'd25,
+        sb = 5'd26,
+        sh = 5'd27,
+        sw = 5'd28,
+        fence = 5'd29,
+        fence_i = 5'd30
     } alu_sel_t;
 endpackage
