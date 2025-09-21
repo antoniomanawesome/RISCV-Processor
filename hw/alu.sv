@@ -1,3 +1,4 @@
+//including base operations for RV32I
 import alu_pkg::*;
 
 module alu

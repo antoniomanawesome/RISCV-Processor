@@ -1,3 +1,4 @@
+//made alu package so it's easier to see what does what in alu.sv
 package alu_pkg;
     typedef enum logic [4:0] {
         add   = 5'd0,
