@@ -7,6 +7,13 @@ Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 Top level modules:
 	alu
 
+} {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/pc.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/pc.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module pc
+
+Top level modules:
+	pc
+
 } {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_pkg.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_pkg.sv
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 -- Compiling package alu_pkg
@@ -14,18 +21,25 @@ Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 Top level modules:
 	--none--
 
+} {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/controller.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/controller.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module controller
+
+Top level modules:
+	controller
+
+} {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/imem.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/imem.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module imem
+
+Top level modules:
+	imem
+
 } {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register_file.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register_file.sv
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 -- Compiling module register_file
 
 Top level modules:
 	register_file
-
-} {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register.sv
-Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
--- Compiling module register
-
-Top level modules:
-	register
 
 } {} {}}

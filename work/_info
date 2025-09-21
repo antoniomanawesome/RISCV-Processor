@@ -12,46 +12,71 @@ dC:/Users/gsfei/OneDrive/Desktop/DD TA/Lab2
 valu
 Z0 2C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu.sv
 Z1 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z2 DXx4 work 7 alu_pkg 0 22 4l8@]8g3Bf`SD>5Pg6KhE1
-DXx4 work 11 alu_sv_unit 0 22 GZ1cc[fdRzBZ9PnIi`]@l0
-Z3 !s110 1758232581
+Z2 DXx4 work 7 alu_pkg 0 22 2>]Xb0J8a[bbBP`HLIdK?1
+DXx4 work 11 alu_sv_unit 0 22 _C2XmBR?hElGe7k2`VTn51
+Z3 !s110 1758490556
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 r1
 !s85 0
 !i10b 1
-!s100 8lZ;?djm6zb?OIjI46KKQ3
-Im@8>R_GiZ?;GPf5?7SCzS2
+!s100 GngR=K8>zRG@aH:dhf?3U0
+I9`ZTfNjMb9I2KBL6BXD_G3
 !s105 alu_sv_unit
 S1
 Z5 dC:/Users/gsfei/OneDrive/Desktop/RISCV-Processor
-Z6 w1758232571
+Z6 w1758465638
 Z7 8C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu.sv
 Z8 FC:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu.sv
-!i122 17
-L0 3 39
+!i122 63
+L0 4 39
 Z9 OL;L;2023.3;77
 31
-Z10 !s108 1758232581.000000
+Z10 !s108 1758490556.000000
 Z11 !s107 C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu.sv|
 Z12 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu.sv|
 !i113 0
 Z13 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Z14 tCvgOpt 0
+valu_control
+2C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_control.sv
+R1
+Z15 !s110 1758490557
+!i10b 1
+!s100 kTf2kR7QhOV?FT4SJ6QFj3
+I4lb:`>kLT1c[WUn>H8o0D1
+S1
+R5
+w1758490552
+8C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_control.sv
+FC:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_control.sv
+!i122 66
+L0 1 73
+R4
+R9
+r1
+!s85 0
+31
+Z16 !s108 1758490557.000000
+!s107 C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_control.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_control.sv|
+!i113 0
+R13
+R14
 Xalu_pkg
 2C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_pkg.sv
 R1
-R3
+R15
 !i10b 1
-!s100 ^IL>]bIAK@Xb[KfDajjGR2
-I4l8@]8g3Bf`SD>5Pg6KhE1
+!s100 :bA]J<18YnOUcB`9h6R2V0
+I2>]Xb0J8a[bbBP`HLIdK?1
 S1
 R5
-w1758232577
+w1758487052
 8C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_pkg.sv
 FC:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_pkg.sv
-!i122 18
-Z15 L0 1 0
-V4l8@]8g3Bf`SD>5Pg6KhE1
+!i122 64
+Z17 L0 2 0
+V2>]Xb0J8a[bbBP`HLIdK?1
 R9
 r1
 !s85 0
@@ -67,20 +92,20 @@ R0
 R1
 R2
 R3
-VGZ1cc[fdRzBZ9PnIi`]@l0
+V_C2XmBR?hElGe7k2`VTn51
 r1
 !s85 0
 !i10b 1
-!s100 ?BG`OlBNkOI8687:D:[dW2
-IGZ1cc[fdRzBZ9PnIi`]@l0
+!s100 3VnhYb0g`AJLZd[9D_i]P1
+I_C2XmBR?hElGe7k2`VTn51
 !i103 1
 S1
 R5
 R6
 R7
 R8
-!i122 17
-R15
+!i122 63
+R17
 R9
 31
 R10
@@ -89,10 +114,85 @@ R12
 !i113 0
 R13
 R14
+vcontroller
+2C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/controller.sv
+R1
+R15
+!i10b 1
+!s100 1Pn35Xd99d=kO=0a`Ig170
+I=Z[nzA>3AaL6Bb6?g?d7]3
+S1
+R5
+w1758489983
+8C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/controller.sv
+FC:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/controller.sv
+!i122 67
+L0 1 134
+R4
+R9
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/controller.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/controller.sv|
+!i113 0
+R13
+R14
+vimem
+2C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/imem.sv
+R1
+Z18 !s110 1758490558
+!i10b 1
+!s100 ;jKRPmi>zMaSjgHBh`1RH0
+IPG0I03Uz@CI?Z_f9B[<P:1
+S1
+R5
+w1758480528
+8C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/imem.sv
+FC:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/imem.sv
+!i122 68
+L0 3 37
+R4
+R9
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/imem.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/imem.sv|
+!i113 0
+R13
+R14
+vpc
+2C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/pc.sv
+R1
+R18
+!i10b 1
+!s100 9<QbgWBj8nN1SGPZ<?=[H2
+IC@MEMCzXlPOQ11mmHgEWe2
+S1
+R5
+w1758487080
+8C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/pc.sv
+FC:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/pc.sv
+!i122 69
+L0 5 15
+R4
+R9
+r1
+!s85 0
+31
+!s108 1758490558.000000
+!s107 C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/pc.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/pc.sv|
+!i113 0
+R13
+R14
 vregister
 2C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register.sv
 R1
-R3
+!s110 1758232581
 !i10b 1
 !s100 =lSWUHHM^Q[:0=74;9K<;2
 I^7Ub:9ZM5iTz<D>]=@P7Z3
@@ -108,7 +208,7 @@ R9
 r1
 !s85 0
 31
-R10
+!s108 1758232581.000000
 !s107 C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register.sv|
 !i113 0
@@ -117,23 +217,23 @@ R14
 vregister_file
 2C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register_file.sv
 R1
-!s110 1758232582
+R15
 !i10b 1
 !s100 b@=ScLIezZY;mHhhePM5<0
 IfoTXR5^Z5:fL^SkaK]9Ab2
 S1
 R5
-w1758229495
+w1758464337
 8C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register_file.sv
 FC:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register_file.sv
-!i122 20
+!i122 65
 L0 3 34
 R4
 R9
 r1
 !s85 0
 31
-R10
+R16
 !s107 C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register_file.sv|
 !s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/register_file.sv|
 !i113 0
