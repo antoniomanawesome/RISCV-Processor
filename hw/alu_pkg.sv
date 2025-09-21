@@ -1,6 +1,6 @@
 //made alu package so it's easier to see what does what in alu.sv
 package alu_pkg;
-    typedef enum logic [4:0] {
+    typedef enum logic [5:0] {
         add   = 5'd0,
         sub   = 5'd1,
         sll   = 5'd2,
@@ -32,5 +32,13 @@ package alu_pkg;
         sw = 5'd28,
         fence = 5'd29,
         fence_i = 5'd30
+        jal = 5'd31,
+        jalr = 5'd32,
+        beq = 5'd33,
+        bne = 5'd34,
+        blt = 5'd35,
+        bge = 5'd36,
+        bltu = 5'd37,
+        bgeu = 5'd38
     } alu_sel_t;
 endpackage

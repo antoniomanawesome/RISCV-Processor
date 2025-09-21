@@ -2,7 +2,7 @@
 import alu_pkg::*;
 
 module alu
-#(parameter int WIDTH)
+#(parameter int WIDTH = 32)
 (
     input logic [WIDTH-1:0] rs1,
     input logic [WIDTH-1:0] rs2,
