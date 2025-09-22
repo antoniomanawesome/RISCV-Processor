@@ -1,4 +1,11 @@
-C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu.sv
+C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_control.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu_control.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module alu_control
+
+Top level modules:
+	alu_control
+
+} {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/alu.sv
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 -- Compiling package alu_sv_unit
 -- Importing package alu_pkg
@@ -6,6 +13,13 @@ Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 
 Top level modules:
 	alu
+
+} {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/dmem.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/dmem.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module dmem
+
+Top level modules:
+	dmem
 
 } {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/pc.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/pc.sv
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
@@ -20,6 +34,13 @@ Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
 
 Top level modules:
 	--none--
+
+} {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/imm_gen.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/imm_gen.sv
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+-- Compiling module imm_gen
+
+Top level modules:
+	imm_gen
 
 } {} {}} C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/controller.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/gsfei/OneDrive/Desktop/RISCV-Processor/hw/controller.sv
 Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023

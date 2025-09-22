@@ -78,3 +78,33 @@
 # Compile of imem.sv was successful.
 # Compile of pc.sv was successful.
 # 7 compiles, 0 failed with no errors.
+# Compile of alu.sv was successful.
+# Compile of alu_pkg.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of alu_control.sv was successful.
+# Compile of controller.sv was successful.
+# Compile of imem.sv was successful.
+# Compile of pc.sv was successful.
+# Compile of dmem.sv failed with 2 errors.
+# Compile of imm_gen.sv failed with 6 errors.
+# 9 compiles, 2 failed with 8 errors.
+# Compile of alu.sv was successful.
+# Compile of alu_pkg.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of alu_control.sv was successful.
+# Compile of controller.sv was successful.
+# Compile of imem.sv was successful.
+# Compile of pc.sv was successful.
+# Compile of dmem.sv was successful.
+# Compile of imm_gen.sv failed with 6 errors.
+# 9 compiles, 1 failed with 6 errors.
+# Compile of alu.sv was successful.
+# Compile of alu_pkg.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of alu_control.sv was successful.
+# Compile of controller.sv was successful.
+# Compile of imem.sv was successful.
+# Compile of pc.sv was successful.
+# Compile of dmem.sv was successful.
+# Compile of imm_gen.sv was successful.
+# 9 compiles, 0 failed with no errors.
