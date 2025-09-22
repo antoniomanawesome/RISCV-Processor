@@ -43,7 +43,6 @@ always_comb begin
         2'b10: begin
             case (funct3)
                 3'b000: begin
-                    // ADD / SUB
                     if (funct7 == 7'b0100000)
                         aluControl = ALU_SUB;
                     else
