@@ -1,7 +1,5 @@
 module controller
 (
-    input logic[6:0] funct7,
-    input logic[2:0] funct3,
     input logic[6:0] opcode,
     
     output logic regWriteD,
@@ -9,7 +7,7 @@ module controller
     output logic jumpD,
     output logic branchD,
     output logic aluSrcD,
-    output logic[4:0] aluControlD,
+    output logic[1:0] aluOp,
     output logic[1:0] resultSrcD,
     output logic[2:0] immSrcD
 );
@@ -24,15 +22,6 @@ module controller
     logic jal = (opcode == 7'b1101111);
     logic lui = (opcode == 7'b0110111);
     logic auipc = (opcode == 7'b0010111);
-
-    logic[1:0] aluOp;
-
-    alu_control alu_ctrl (
-        .aluOp(aluOp),
-        .funct3(funct3),
-        .funct7(funct7),
-        .aluControl(aluControlD)
-    );
 
     always_comb begin
 

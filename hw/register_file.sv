@@ -23,7 +23,8 @@ always_ff @(posedge clk or posedge rst) begin
         for (int i = 0; i < DEPTH; i++) begin
             regs[i] <= '0;
         end
-    end else if (wr_en && (regW != 0)) begin
+    end 
+    else if (wr_en && (regW != 0)) begin
         regs[regW] <= portW;
     end
 
