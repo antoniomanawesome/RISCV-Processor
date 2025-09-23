@@ -1,7 +1,7 @@
 //Register file, 32-bit wide, 31 registers
 
 module register_file
-#(parameter int WIDTH = 32, parameter int DEPTH = 31)
+#(parameter int WIDTH = 32, parameter int DEPTH = 32)
 (
     input logic clk,
     input logic rst,
@@ -14,7 +14,7 @@ module register_file
     output logic [WIDTH-1:0] portB
 );
 
-logic [WIDTH-1:0] regs [0:DEPTH-1];
+logic [WIDTH-1:0] regs [0:DEPTH-2];
 
 //Write port
 always_ff @(posedge clk or posedge rst) begin
@@ -31,7 +31,7 @@ always_ff @(posedge clk or posedge rst) begin
 end
 
 //Read ports
-assign portA = (regA == 0) ? '0 : (wr_en == 1'b1) ? portA : regs[regA];
-assign portB = (regB == 0) ? '0 : (wr_en == 1'b1) ? portB : regs[regB];
+assign portA = (regA == 0) ? '0 : regs[regA];
+assign portB = (regB == 0) ? '0 : regs[regB];
 
 endmodule
