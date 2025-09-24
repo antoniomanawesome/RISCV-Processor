@@ -4,13 +4,12 @@ module register_file_tb;
 localparam WIDTH = 32;
 localparam DEPTH = 32;
 localparam NUM_TESTS = 10000;
-int passed, failed;
 
 logic clk, rst, wr_en;
 logic [$clog2(DEPTH)-1:0] regW, regA, regB;
 logic [WIDTH-1:0] portW, portA, portB;
 
-register_file #(.WIDTH(WIDTH)) DUT (.*);
+register_file #(.WIDTH(WIDTH), .DEPTH(DEPTH)) DUT (.*);
 
 //generating the clock
 initial begin : generate_clock
