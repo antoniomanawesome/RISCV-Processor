@@ -8,6 +8,7 @@ localparam NUM_TESTS = 10000;
 logic clk, rst, wr_en;
 logic [$clog2(DEPTH)-1:0] regW, regA, regB;
 logic [WIDTH-1:0] portW, portA, portB;
+logic [WIDTH-1:0] reg_ref [0:DEPTH-2]
 
 register_file #(.WIDTH(WIDTH), .DEPTH(DEPTH)) DUT (.*);
 
@@ -29,6 +30,24 @@ initial begin : drive_inputs
     rst <= 1'b0;
 
     //making regA reg0 and reading from portA to see if it's actually 0 and we can't write to it
+    //and regB
+    regW <= '0;
+    regA <= '0;
+    regB <= '0;
+    portW <= $urandom;
+    @(posedge clk);
+    assert property (@(posedge clk) portA == '0);
+    assert property (@(posedge clk) portB == '0);
+    @(posedge clk);
+
+    //reading and writing from the same reg
+    regW <= 1;
+    portW <= $urandom;
+    @(posedge clk);
+    portW <= $urandom;
+    regA <= 1;
+    @(posedge clk);
+    //how to check if it's the old value or new value
 
 
     //performing rest of tests with random regs

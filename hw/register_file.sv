@@ -14,7 +14,7 @@ module register_file
     output logic [WIDTH-1:0] portB
 );
 
-logic [WIDTH-1:0] regs [1:DEPTH-1];
+logic [WIDTH-1:0] regs [0:DEPTH-2];
 
 //Write port
 always_ff @(posedge clk or posedge rst) begin
