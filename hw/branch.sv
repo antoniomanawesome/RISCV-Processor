@@ -9,7 +9,7 @@ module branch (
     output logic take_branch
 );
 
-//RV32I branch funct3 codes
+//branch op corresponding funct3 codes
 localparam BEQ = 3'b000;
 localparam BNE = 3'b001;
 localparam BLT = 3'b100;
