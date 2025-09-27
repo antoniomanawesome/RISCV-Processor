@@ -20,6 +20,31 @@ logic clk = 1'b0;
 logic rst = 1'b0;
 int err_count = 0;
 
+class input_item;
+
+    rand bit [31:0] rs1;
+    rand bit [31:0] rs2;
+    randc bit branchD;
+
+    constraint rs1_dist {
+        rs1 dist {
+            0 :/ 10,
+            2**32 - 1:/ 10,
+            [1:30] :/ 80
+        };
+    }
+    constraint rs2_dist {
+        rs2 dist {
+            0 :/ 10,
+            2**32 - 1:/ 10,
+            [1:30] :/ 80
+        };
+    }
+
+endclass
+
+input_item item;
+
 branch DUT (
     .rs1(rs1),
     .rs2(rs2),
@@ -43,15 +68,17 @@ initial begin : reset
 end
 
 initial begin : driver
+    item = new;
     $timeformat(-9, 0," ns");
     #100;
 
     for (int i = 0; i < 8; i++) begin //since funct3 is 3 bits
         funct3 <= i;
-        branchD <= 1'b1;
-        //need to implement CRV dist for branchD, rs1 & rs2 to get 100% coverage
-        rs1 <= 32'h6785319A;
-        rs2 <= 32'h08880219;
+        assert(item.randomize()) // QUESTA says no license for randomize()...
+        else $fatal(1, "ERROR: Randomization failed.");
+        rs1 <= item.rs1;
+        rs2 <= item.rs2;
+        branchD <= item.branchD;
         @(posedge clk);
         scoreboard(rs1, rs2, funct3, branchD, take_branch);
     end
@@ -76,6 +103,5 @@ function void scoreboard(logic [31:0] rs1, logic [31:0] rs2, logic [2:0] funct3,
 
     assert(expected_branch === take_branch) else $error($realtime, "take_branch mismatch for funct3: %0h", funct3, err_count++);
 endfunction
-
 
 endmodule
