@@ -1,5 +1,5 @@
 # RISCV-Processor
-This project is a custom-built 32-bit RISC-V CPU written in SystemVerilog, designed from the ground up to run on FPGA hardware
+This project is a custom-built 32-bit RISC-V CPU written in SystemVerilog, designed from the ground up to run on FPGA hardware.
 The datapath is currently multicycle RV32I Base ISA
 
 <img width="892" height="459" alt="datapathrv" src="https://github.com/user-attachments/assets/fcf2f006-d8d4-4272-b457-544d77f0e059" />
