@@ -8,7 +8,7 @@ localparam NUM_TESTS = 10000;
 logic clk, rst, wr_en;
 logic [$clog2(DEPTH)-1:0] regW, regA, regB;
 logic [WIDTH-1:0] portW, portA, portB;
-logic [WIDTH-1:0] reg_ref [0:DEPTH-2]
+logic [WIDTH-1:0] model_reg [0:DEPTH-1];
 
 register_file #(.WIDTH(WIDTH), .DEPTH(DEPTH)) DUT (.*);
 
@@ -18,9 +18,40 @@ initial begin : generate_clock
     forever #5 clk <= ~clk;
 end
 
+//creating a covegroup to cover all of the edge cases I want
+covergroup cg @(posedge clk);
+    //reading from each reg
+    regA_bin : coverpoint regA { bins all_regs[] = {[0:DEPTH-1]};}
+    regB_bin : coverpoint regB { bins all_regs[] = {[0:DEPTH-1]};}
+
+    //writing to each reg when enable is asserted
+    regW_bin : coverpoint regW iff (wr_en) {bins all_regs[] = {[0:DEPTH-1]};}
+
+    //writing to reg0
+    regW_0_write_bin : coverpoint regW iff (wr_en) {bins x0 = {0};}
+
+    //same read from both ports
+    regA_crossregB : cross regA, regB;
+
+    //read and write at same time
+    coverpoint wr_en;
+    cross wr_en, regA, regW;
+
+endgroup
+
+//updating the model with the same behavior as the DUT
+always_ff @(posedge clk) begin
+
+    if(wr_en && regW != 0) model_reg[regW] <= portW;
+
+    if(rst) for(int i = 0; i < DEPTH; i++) model_reg[i] <= '0;
+end
+
+cg cg_inst;
 
 //driving the inputs
 initial begin : drive_inputs
+    cg_inst = new();
     $timeformat(-9, 0, " ns");
 
     //testing the reset and init the circuit
@@ -66,7 +97,8 @@ initial begin : drive_inputs
 end
 
 
-assert property (@(posedge clk) !rst && wr_en |=> portA == $past(DUT.regs[regA], 1));
+assert property (@(posedge clk) !rst && wr_en |=> portA == model_reg[regA]);
+assert property (@(posedge clk) !rst && wr_en |=> portB == model_reg[regB]);
 assert property (@(posedge clk) disable iff (rst) !wr_en |=> portB == DUT.regs[regB]);
 assert property (@(posedge clk) rst |=> portA == '0);
 
