@@ -13,15 +13,15 @@ module controller
 );
 
     //opcodes
-    logic r_type = (opcode == 7'b0110011);
-    logic i_type = (opcode == 7'b0010011);
-    logic load = (opcode == 7'b0000011);
-    logic store = (opcode == 7'b0100011);
-    logic branch = (opcode == 7'b1100011);
-    logic jalr = (opcode == 7'b1100111);
-    logic jal = (opcode == 7'b1101111);
-    logic lui = (opcode == 7'b0110111);
-    logic auipc = (opcode == 7'b0010111);
+    localparam R_TYPE = 7'b0110011;
+    localparam I_TYPE = 7'b0010011;
+    localparam LOAD = 7'b0000011;
+    localparam STORE = 7'b0100011;
+    localparam BRANCH = 7'b1100011;
+    localparam JALR = 7'b1100111;
+    localparam JAL = 7'b1101111;
+    localparam LUI = 7'b0110111;
+    localparam AUIPC = 7'b0010111;
 
     always_comb begin
 
@@ -34,9 +34,9 @@ module controller
         resultSrcD = 2'b00;
         immSrcD = 3'b000;
 
-        case(1'b1)
+        case(opcode)
 
-            r_type: begin
+            R_TYPE: begin
                 regWriteD = 1'b1;
                 aluSrcD = 1'b0;
                 aluOp = 2'b10;
@@ -44,7 +44,7 @@ module controller
                 immSrcD = 3'bxxx;
             end
 
-            i_type: begin
+            I_TYPE: begin
                 regWriteD = 1'b1;
                 aluSrcD = 1'b1;
                 aluOp = 2'b10;
@@ -52,7 +52,7 @@ module controller
                 immSrcD = 3'b000;
             end
 
-            load: begin
+            LOAD: begin
                 regWriteD = 1'b1;
                 aluSrcD = 1'b1;
                 aluOp = 2'b00;
@@ -60,21 +60,21 @@ module controller
                 immSrcD = 3'b000;
             end
 
-            store: begin
+            STORE: begin
                 memWriteD = 1'b1;
                 aluSrcD = 1'b1;
                 aluOp = 2'b00;
                 immSrcD = 3'b001;
             end
 
-            branch: begin
+            BRANCH: begin
                 branchD = 1'b1;
                 aluSrcD = 1'b0;
                 aluOp = 2'b01;
                 immSrcD = 3'b010;
             end
 
-            jalr: begin
+            JALR: begin
                 regWriteD = 1'b1;
                 jumpD = 1'b1;
                 aluSrcD = 1'b1;
@@ -83,20 +83,20 @@ module controller
                 immSrcD = 3'b000;
             end
 
-            jal: begin
+            JAL: begin
                 regWriteD = 1'b1;
                 jumpD = 1'b1;
                 resultSrcD = 2'b10;
                 immSrcD = 3'b100;
             end
 
-            lui: begin
+            LUI: begin
                 regWriteD = 1'b1;
                 resultSrcD = 2'b11;
                 immSrcD = 3'b011;
             end
 
-            auipc: begin
+            AUIPC: begin
                 regWriteD  = 1'b1;
                 aluSrcD    = 1'b1;
                 aluOp     = 2'b00;
@@ -105,7 +105,6 @@ module controller
             end
 
             default: begin
-                //default values
                 regWriteD = 1'b0;
                 memWriteD = 1'b0;
                 jumpD = 1'b0;
@@ -115,9 +114,7 @@ module controller
                 resultSrcD = 2'b00;
                 immSrcD = 3'b000;
             end
-
         endcase
-
     end
 
 endmodule
