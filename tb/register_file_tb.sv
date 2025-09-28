@@ -28,14 +28,14 @@ covergroup cg @(posedge clk);
     regW_bin : coverpoint regW iff (wr_en) {bins all_regs[] = {[0:DEPTH-1]};}
 
     //writing to reg0
-    regW_0_write_bin : coverpoint regW iff (wr_en) {bins x0 = {0};}
+    reg0bin : coverpoint regW iff (wr_en) {bins x0 = {0};}
 
     //same read from both ports
-    regA_crossregB : cross regA, regB;
+    AcrossB : cross regA, regB;
 
     //read and write at same time
-    coverpoint wr_en;
-    cross wr_en, regA, regW;
+    en_bin : coverpoint wr_en;
+    rw_bin : cross en_bin, regA_bin, regW_bin;
 
 endgroup
 
@@ -99,7 +99,7 @@ end
 
 assert property (@(posedge clk) !rst && wr_en |=> portA == model_reg[regA]);
 assert property (@(posedge clk) !rst && wr_en |=> portB == model_reg[regB]);
-assert property (@(posedge clk) disable iff (rst) !wr_en |=> portB == DUT.regs[regB]);
+assert property (@(posedge clk) disable iff (rst) !wr_en |=> portB == model_reg[regB]);
 assert property (@(posedge clk) rst |=> portA == '0);
 
 
