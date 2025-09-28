@@ -1,7 +1,7 @@
 //creating instruction memory (where we put our file with the things we want to run)
 
 module imem
-#(parameter int WIDTH = 32, parameter int DEPTH = 32, parameter string INIT_FILE = "../init/imem_initialization.hex")
+#(parameter int WIDTH = 32, parameter int DEPTH = 32, parameter string INIT_FILE = "tb/imem_init.hex")
 (
     input logic clk,
     input logic rst,
@@ -12,7 +12,7 @@ module imem
 
 logic [WIDTH-1:0] memory [0:DEPTH-1];
 
-logic [DEPTH-1:0] iaddr_r;
+logic [$clog2(DEPTH)-1:0] iaddr_r;
 logic [WIDTH-1:0] instr_r;
 
 initial begin
@@ -26,10 +26,10 @@ always_ff @(posedge clk or posedge rst) begin
     end else if (rd_en) begin
         if (iaddr_r[1:0] != 2'b00) begin
             instr_r <= '0;
-            $display("ERROR: Misaligned instruction memory address.");
+            $display("ERROR: Misaligned instruction memory address: %h", pc);
         end else begin
-            iaddr_r <= pc[31:2];
-            instr_r <= memory[iaddr_r];
+            iaddr_r <= pc[$clog2(DEPTH)+1:2];
+            instr_r <= memory[iaddr_r]; //one cycle delay (which vivado bram prefers)
         end
     end
 end

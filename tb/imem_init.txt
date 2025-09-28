@@ -1,0 +1,29 @@
+#creating imem init file to test all current alu functions
+    
+# --- R-type ops ---
+add   x3, x1, x2      # x3 = x1 + x2
+sub   x4, x1, x2      # x4 = x1 - x2
+sll   x5, x1, x2      # x5 = x1 << (x2 & 0x1F)
+srl   x6, x1, x2      # x6 = x1 >> (x2 & 0x1F)
+sra   x7, x1, x2      # x7 = x1 >>> (x2 & 0x1F) (arith shift)
+and   x8, x1, x2      # x8 = x1 & x2
+or    x9, x1, x2      # x9 = x1 | x2
+xor   x10, x1, x2     # x10 = x1 ^ x2
+slt   x11, x1, x2     # x11 = (x1 < x2)?1:0 (signed)
+sltu  x12, x1, x2     # x12 = (x1 < x2)?1:0 (unsigned)
+
+# --- I-type ops ---
+addi  x13, x1, 5      # x13 = x1 + 5
+slli  x14, x1, 3      # x14 = x1 << 3
+srli  x15, x1, 2      # x15 = x1 >> 2
+srai  x16, x1, 2      # x16 = x1 >>> 2
+andi  x17, x1, 0xF0   # x17 = x1 & 0xF0
+ori   x18, x1, 0x0F   # x18 = x1 | 0x0F
+xori  x19, x1, 0xAA   # x19 = x1 ^ 0xAA
+slti  x20, x1, 5      # signed compare imm
+sltiu x21, x1, 5      # unsigned compare imm
+
+# --- U-type ops ---
+lui   x22, 0x12345    # x22 = 0x12345000
+auipc x23, 0x10000    # x23 = pc + 0x10000000
+nop                   # safe stop
