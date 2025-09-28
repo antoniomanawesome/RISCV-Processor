@@ -59,7 +59,7 @@ initial begin : drive_inputs
     wr_en <= 1'b0;
     repeat(5) @(posedge clk);
     rst <= 1'b0;
-
+    wr_en <= 1'b1;
     //making regA reg0 and reading from portA to see if it's actually 0 and we can't write to it
     //and regB
     regW <= '0;
@@ -71,15 +71,35 @@ initial begin : drive_inputs
     assert property (@(posedge clk) portB == '0);
     @(posedge clk);
 
-    //reading and writing from the same reg
+    //reading and writing from reg1
     regW <= 1;
-    portW <= $urandom;
+    portW <= 32'h33333333;
     @(posedge clk);
-    portW <= $urandom;
-    regA <= 1;
-    @(posedge clk);
-    //how to check if it's the old value or new value
 
+    regA <= 1;
+    portW <= 32'h22222222;
+    @(posedge clk);
+
+    assert (portA == 32'h33333333) //portA should show previous value because it's combinational
+    else $error("Read-during-write mismatch: got %h, expected old value %h", portA, 32'h33333333);
+    @(posedge clk);
+    assert (portA == 32'h22222222) //next cycle happened, portA should show new value
+    else $error("Read-after-write mismatch: got %h, expected new value %h", portA, 32'h22222222);
+
+    //if I write to a reg 2 cycles in a row with different values, 2nd value should be stored
+    regW <= 7;
+    portW <= 32'h44444444;
+    @(posedge clk);
+
+    regW <= 7;
+    portW <= 32'h55555555;
+    @(posedge clk);
+
+    wr_en <= 1'b0;
+    regA <= 7;
+    @(posedge clk);
+    assert(portA == 32'h55555555) //should be latest write
+    else $error("Back-to-back write failed: got %h, expected %h", portA, 32'h55555555);
 
     //performing rest of tests with random regs
     for(int i = 0; i < NUM_TESTS; i++) begin
@@ -100,7 +120,7 @@ end
 assert property (@(posedge clk) !rst && wr_en |=> portA == model_reg[regA]);
 assert property (@(posedge clk) !rst && wr_en |=> portB == model_reg[regB]);
 assert property (@(posedge clk) disable iff (rst) !wr_en |=> portB == model_reg[regB]);
-assert property (@(posedge clk) rst |=> portA == '0);
+assert property (@(posedge clk) rst |=> model_reg[3] == '0);
 
 
 endmodule
