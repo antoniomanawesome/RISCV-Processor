@@ -1,6 +1,6 @@
 `timescale 1ns / 10ps
 
-module branch_tb;
+module branch_tb #(parameter NUM_TESTS = 10000;);
 
 //branch op corresponding funct3 codes
 localparam BEQ = 3'b000;
@@ -24,6 +24,7 @@ class input_item;
 
     rand bit [31:0] rs1;
     rand bit [31:0] rs2;
+    randc bit [2:0] funct3;
     randc bit branchD;
 
     constraint rs1_dist {
@@ -38,6 +39,14 @@ class input_item;
             0 :/ 10,
             2**32 - 1:/ 10,
             [1:30] :/ 80
+        };
+    }
+
+    constraint funct3_dist {
+        funct3 dist {
+            [0:1] :/ 33,
+            [2:3] :/ 0,
+            [4:7] :/ 67
         };
     }
 
@@ -72,12 +81,12 @@ initial begin : driver
     $timeformat(-9, 0," ns");
     #100;
 
-    for (int i = 0; i < 8; i++) begin //since funct3 is 3 bits
-        funct3 <= i;
+    for (int i = 0; i < NUM_TESTS; i++) begin
         assert(item.randomize()) // QUESTA says no license for randomize()...
         else $fatal(1, "ERROR: Randomization failed.");
         rs1 <= item.rs1;
         rs2 <= item.rs2;
+        funct3 <= item.funct3;
         branchD <= item.branchD;
         @(posedge clk);
         scoreboard(rs1, rs2, funct3, branchD, take_branch);
