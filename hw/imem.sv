@@ -1,7 +1,9 @@
 //creating instruction memory (where we put our file with the things we want to run)
+//if vivado doesn't infer the bram, remove the rst
+//good to note that async reads will infer LUT ram
 
 module imem
-#(parameter int WIDTH = 32, parameter int DEPTH = 32, parameter string INIT_FILE = "tb/imem_init.hex")
+#(parameter int WIDTH = 32, parameter int DEPTH = 32, parameter string INIT_FILE = "../init/imem_init.hex")
 (
     input logic clk,
     input logic rst,
@@ -24,7 +26,7 @@ always_ff @(posedge clk or posedge rst) begin
         iaddr_r <= '0;
         instr_r <= '0;
     end else if (rd_en) begin
-        if (iaddr_r[1:0] != 2'b00) begin
+        if (pc[1:0] != 2'b00) begin
             instr_r <= '0;
             $display("ERROR: Misaligned instruction memory address: %h", pc);
         end else begin

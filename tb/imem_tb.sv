@@ -4,11 +4,12 @@ module imem_tb;
 
     localparam WIDTH = 32;
     localparam DEPTH = 32;
-    localparam string INIT_FILE = "tb/imem_init.hex";
+    localparam string INIT_FILE = "imem_init.hex";
 
     logic clk, rst, rd_en;
     logic [31:0] pc;
     logic [WIDTH-1:0] instr;
+    int curr_pc;
 
     logic [WIDTH-1:0] model_mem [0:DEPTH-1];
 
@@ -42,8 +43,9 @@ module imem_tb;
 
         //aligned reads
         for(int i = 0; i < 22; i++) begin
-            pc <= i*4;
-            @(posedge clk);
+            curr_pc = i*4;
+            pc <= curr_pc;
+            repeat(3) @(posedge clk); //remember that there's a one cycle latency due to registered iaddr_r
             assert(instr == model_mem[i])
             else $error("Mismatch in pc=0%0d: expected %h, got %h", pc, model_mem[i], instr);
         end
@@ -53,7 +55,7 @@ module imem_tb;
         //misaligned
         pc <= 3;
         rd_en <= 1'b1;
-        @(posedge clk);
+        repeat(3) @(posedge clk);
         assert(instr == '0)
         else $error("misaligned addr giving garbo value");
 
@@ -62,7 +64,7 @@ module imem_tb;
         //read en
         pc <= '0;
         rd_en <= 1'b0;
-        @(posedge clk);
+        repeat(3) @(posedge clk);
         assert(instr == '0)
         else $error("enable did not behave correctly");
 
