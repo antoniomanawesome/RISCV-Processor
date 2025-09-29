@@ -4,7 +4,7 @@ module imem_tb;
 
     localparam WIDTH = 32;
     localparam DEPTH = 32;
-    localparam string INIT_FILE = "imem_init.hex";
+    localparam string INIT_FILE = "../init/imem_init.hex";
 
     logic clk, rst, rd_en;
     logic [31:0] pc;
