@@ -10,23 +10,23 @@ module branch (
 );
 
 //branch op corresponding funct3 codes
-localparam BEQ = 3'b000;
-localparam BNE = 3'b001;
-localparam BLT = 3'b100;
-localparam BGE = 3'b101;
-localparam BLTU = 3'b110;
-localparam BGEU = 3'b111;
+localparam BEQ = 3'h0;
+localparam BNE = 3'h1;
+localparam BLT = 3'h4;
+localparam BGE = 3'h5;
+localparam BLTU = 3'h6;
+localparam BGEU = 3'h7;
 
 always_comb begin
     take_branch = 1'b0;
     if (branchD) begin
         case (funct3)
-            BEQ: take_branch = (rs1 == rs2);
-            BNE: take_branch = (rs1 != rs2);
-            BLT: take_branch = ($signed(rs1) < $signed(rs2));
-            BGE: take_branch = ($signed(rs1) >= $signed(rs2));
-            BLTU: take_branch = (rs1 < rs2);
-            BGEU: take_branch = (rs1 >= rs2);
+            BEQ: take_branch = (rs1 === rs2) ? 1'b1 : 1'b0;
+            BNE: take_branch = (rs1 !== rs2) ? 1'b1 : 1'b0;
+            BLT: take_branch = ($signed(rs1) < $signed(rs2)) ? 1'b1 : 1'b0;
+            BGE: take_branch = ($signed(rs1) >= $signed(rs2)) ? 1'b1 : 1'b0;
+            BLTU: take_branch = (rs1 < rs2) ? 1'b1 : 1'b0;
+            BGEU: take_branch = (rs1 >= rs2) ? 1'b1 : 1'b0;
             default: take_branch = 1'b0;
         endcase
     end
